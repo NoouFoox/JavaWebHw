@@ -8,11 +8,11 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>注册</title>
 </head>
 <body>
 	<div class="container w-50">
-		<form action="" method="post">
+		<form action="register_server.jsp" method="post">
 			<h1 class="text-center">用户注册</h1>
 			<div class="form-group">
 				账号:<input type="text" class="form-control" name="account">
@@ -31,20 +31,11 @@
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary btn-block" value="提交">
 			</div>
+			<div class="form-group">
+				<input type="button" name="" id="" value="注册" class="btn btn-primary btn-block" />
+			</div>
 		</form>
 	</div>
-	<%
-		String account = request.getParameter("account");
-		String password = request.getParameter("password");
-		String re_password = request.getParameter("re_password");
-		String nickname = request.getParameter("nickname");
-
-		out.print(account = "<br>");
-		out.print(password = "<br>");
-		out.print(re_password = "<br>");
-		out.print(nickname = "<br>");
-	%>
-
 
 </body>
 </html>
