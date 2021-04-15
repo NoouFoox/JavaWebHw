@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="淘兴趣-框架">
+    <wb-module deploy-name="淘兴趣JSP">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="淘兴趣-框架"/>
-        <property name="java-output-path" value="/淘兴趣-框架/build/classes"/>
+        <property name="java-output-path" value="/淘兴趣JSP/build/classes"/>
+        <property name="context-root" value="淘兴趣JSP"/>
     </wb-module>
 </project-modules>
