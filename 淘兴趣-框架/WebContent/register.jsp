@@ -33,6 +33,13 @@
 			</div>
 			<div class="form-group">
 				<input type="button" name="" id="" value="注册" class="btn btn-primary btn-block" />
+				<span>
+				<%
+				if(request.getParameter("message")!=null){
+					out.print(request.getParameter("message"));
+				}
+				%>
+				</span>
 			</div>
 		</form>
 	</div>
