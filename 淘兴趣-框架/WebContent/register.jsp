@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/Testcss.css" />
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <title>注册</title>
@@ -32,13 +33,12 @@
 				<input type="submit" class="btn btn-primary btn-block" value="提交">
 			</div>
 			<div class="form-group">
-				<input type="button" name="" id="" value="注册" class="btn btn-primary btn-block" />
-				<span>
-				<%
-				if(request.getParameter("message")!=null){
-					out.print(request.getParameter("message"));
-				}
-				%>
+				<input type="button" name="" id="" value="注册"
+					class="btn btn-primary btn-block" /> <span> <%
+ 	if (request.getParameter("message") != null) {
+ 		out.print(request.getParameter("message"));
+ 	}
+ 	%>
 				</span>
 			</div>
 		</form>
