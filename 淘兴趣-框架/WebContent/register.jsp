@@ -29,17 +29,18 @@
 				昵称:<input type="text" name="nickname" class="form-control" id=""
 					value="" />
 			</div>
+			<span class="text-danger"> <%
+				if (request.getParameter("message") != null) {
+					out.print(request.getParameter("message"));
+				}
+			%>
+							</span>
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary btn-block" value="提交">
 			</div>
 			<div class="form-group">
 				<input type="button" name="" id="" value="注册"
-					class="btn btn-primary btn-block" /> <span> <%
- 	if (request.getParameter("message") != null) {
- 		out.print(request.getParameter("message"));
- 	}
- 	%>
-				</span>
+					class="btn btn-primary btn-block" />
 			</div>
 		</form>
 	</div>

@@ -27,8 +27,8 @@
 					<button class="btn btn-outline-success" type="submit">搜索</button>
 				</form>
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a href="" class="nav-link">首页</a></li>
-					<li class="nav-item"><a href="" class="btn btn-primary">登录</a></li>
+					<li class="nav-item"><a href="index.jsp" class="nav-link">首页</a></li>
+					<li class="nav-item"><a href="register.jsp" class="btn btn-primary">登录</a></li>
 				</ul>
 			</div>
 		</nav>
