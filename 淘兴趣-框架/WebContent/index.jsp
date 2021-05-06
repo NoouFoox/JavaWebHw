@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,10 +25,18 @@
 				<form class="form-inline" action="#" method="get">
 					<input class="form-control mr-2" type="search">
 					<button class="btn btn-outline-success" type="submit">搜索</button>
+					<p>
+						<%
+							if (request.getParameter("message") != null) {
+								out.print(request.getParameter("message"));
+							}
+						%>
+					</p>
 				</form>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a href="index.jsp" class="nav-link">首页</a></li>
-					<li class="nav-item"><a href="register.jsp" class="btn btn-primary">登录</a></li>
+					<li class="nav-item"><a href="login.jsp"
+						class="btn btn-primary">登录</a></li>
 				</ul>
 			</div>
 		</nav>

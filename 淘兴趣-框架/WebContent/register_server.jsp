@@ -20,10 +20,6 @@
 		String password = request.getParameter("password");
 		String re_password = request.getParameter("re_password");
 		String nickname = request.getParameter("nickname");
-		// 		out.print(account += "<br>");
-		// 		out.print(password + "<br>");
-		// 		out.print(re_password + "<br>");
-		// 		out.print(nickname + "<br>");
 		if (account.trim().isEmpty() || password.trim().isEmpty()) {
 			response.sendRedirect("register.jsp?message=" + URLEncoder.encode("账号密码不能为空", "utf-8"));
 			return;
@@ -38,15 +34,32 @@
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
-		
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/interestdb?useSSL=true&serverTimezone=GMT", "root", "root");
-		String sql ="select account from user where account=?";
-		ps=conn.prepareStatement(sql);
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/interestdb?useSSL=true&serverTimezone=GMT",
+				"root", "root");
+		String sql = "select account from user where account=?";
+		ps = conn.prepareStatement(sql);
 		ps.setString(1, account);
-		rs=ps.executeQuery();
+		rs = ps.executeQuery();
 		if (rs.next()) {
 			response.sendRedirect("register.jsp?message=" + URLEncoder.encode("该账户已经存在", "utf-8"));
+			return;
+		}
+		// 		注册
+		sql = "insert into user(account,password,nickname,update_time) values(?,?,?,?)";
+		response.setCharacterEncoding("GBK");
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, account);
+		ps.setString(2, password);
+		ps.setString(3, nickname);
+		ps.setDate(4, new java.sql.Date(new java.util.Date().getTime()));
+		int num = ps.executeUpdate();
+		if (num != 0) {
+			response.sendRedirect("login.jsp");
+			out.print("插入成功 ID:"+account);
+		} else {
+			response.sendRedirect("register.jsp?message=" + URLEncoder.encode("注册不成功", "utf-8"));
+			out.print("插入失败");
 			return;
 		}
 	%>
