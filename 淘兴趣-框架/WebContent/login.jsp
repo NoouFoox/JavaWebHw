@@ -29,8 +29,12 @@
  %>
 			</span>
 			<div class="form-group">
-				<input type="submit" name="" id="" value="登录"
+				<input type="submit" name="" value="登录"
 					class="btn btn-primary btn-block" />
+			</div>
+			<div class="form-group">
+					<input type="button" name="" value="注册"
+					class="btn btn-link active btn-block" onclick="window.location.href='register.jsp'" />
 			</div>
 		</form>
 	</div>
