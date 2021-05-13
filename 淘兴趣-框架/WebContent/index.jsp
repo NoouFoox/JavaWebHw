@@ -22,6 +22,7 @@
 		ps=conn.prepareStatement(sql);
 	}else{
 		String sql="select interest_id,name,subscribe_num,image from topic where interest_id=? order by subscribe_num desc limit 6";
+		ps=conn.prepareStatement(sql);
 		ps.setInt(1, interest_id);
 	}
 	rs=ps.executeQuery();
@@ -50,17 +51,21 @@
 					<form class="form-inline" action="#" method="get">
 						<input class="form-control mr-2" type="search">
 						<button class="btn btn-outline-success" type="submit">搜索</button>
-						<p>
-							<%
-							if (request.getParameter("message") != null) {
-								out.print(request.getParameter("message"));
-							}
-						%>
-						</p>
 					</form>
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a href="index.jsp" class="nav-link">首页</a></li>
+						<%
+						String account=(String)session.getAttribute("account");
+						if(account==null){
+						%>
 						<li class="nav-item"><a href="login.jsp" class="btn btn-primary">登录</a></li>
+						<%
+						}else{
+						%>
+						<li class="nav-item btn"><kbd>用户名:<%=account %></kbd></li>
+						<%
+						}
+						%>
 					</ul>
 				</div>
 			</nav>
@@ -75,52 +80,31 @@
 						<a href="index.jsp?interest_id=2" class="nav-link">前端兴趣</a>
 						<a href="index.jsp?interest_id=3" class="nav-link">后端兴趣</a>
 						<a href="index.jsp?interest_id=4" class="nav-link">运维兴趣</a>
+						<script type="text/javascript">
+							let activel=document.querySelectorAll(".nav-link");
+							console.log(activel);
+						</script>
 					</div>
 				</div>
 				<!-- 趣点列表 -->
 				<div id="topic_list" class="col-md-10">
 					<div class="card-columns">
+					<%
+						while(rs.next()){	
+					%>
 						<!-- 趣点1 -->
 						<div class="card">
 							<div class="card-body">
-								<h3 class="card-title">HTML5技术兴趣</h3>
-								<p class="text-muted">请订阅</p>
+								<h3 class="card-title"><%=rs.getString("name")%></h3>
+								<p class="text-muted">已订阅<%=rs.getInt("subscribe_num")%></p>
 							</div>
-							<a href="" class="text-dark text-decoration-none"> <img alt="" src="upload/topic_img/HTML5.jpg" class="card-img-bottom">
+							<a href="" class="text-dark text-decoration-none"> <img alt="" src="<%=rs.getString("image") %>" class="card-img-bottom">
 							</a>
 						</div>
-						<div class="card">
-							<div class="card-body">
-								<h3 class="card-title">CSS3最新技术趣点</h3>
-								<p class="text-muted">请订阅</p>
-							</div>
-							<a href="" class="text-dark text-decoration-none"> <img alt="" src="upload/topic_img/CSS3.jpg" class="card-img-bottom">
-							</a>
-						</div>
-						<div class="card">
-							<div class="card-body">
-								<h3 class="card-title">JavaScript最新开发趣点</h3>
-								<p class="text-muted">请订阅</p>
-							</div>
-							<a href="" class="text-dark text-decoration-none"> <img alt="" src="upload/topic_img/JS.jpg" class="card-img-bottom">
-							</a>
-						</div>
-						<div class="card">
-							<div class="card-body">
-								<h3 class="card-title">jQuery插件开发趣点</h3>
-								<p class="text-muted">请订阅</p>
-							</div>
-							<a href="" class="text-dark text-decoration-none"> <img alt="" src="upload/topic_img/jQuery.jpg" class="card-img-bottom">
-							</a>
-						</div>
-						<div class="card">
-							<div class="card-body">
-								<h3 class="card-title">BootStrap实例趣点</h3>
-								<p class="text-muted">请订阅</p>
-							</div>
-							<a href="" class="text-dark text-decoration-none"> <img alt="" src="upload/topic_img/Bootstrap.jpg" class="card-img-bottom">
-							</a>
-						</div>
+						<%
+							
+							}
+						%>
 					</div>
 				</div>
 			</div>

@@ -38,6 +38,8 @@
 		rs = ps.executeQuery();
 		if (rs.next()) {
 // 			response.sendRedirect("index.jsp?");
+//保存账号
+			session.setAttribute("account", account);
 			response.sendRedirect("index.jsp?message=" + URLEncoder.encode("登录成功 账号名", "utf-8")+account);
 		}else{
 			response.sendRedirect("register.jsp?message=" + URLEncoder.encode("账号密码错误", "utf-8"));
