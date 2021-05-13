@@ -62,7 +62,7 @@
 						<%
 						}else{
 						%>
-						<li class="nav-item btn"><kbd>用户名:<%=account %></kbd></li>
+						<li class="nav-item nav-link"><kbd>用户名:<%=account %></kbd></li>
 						<%
 						}
 						%>
