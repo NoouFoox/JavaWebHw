@@ -1,5 +1,21 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%
+	Connection conn = null;
+	//简单 
+	Statement st = null;
+	//复杂 
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/interestdb?useSSL=true&serverTimezone=GMT","root", "root");
+%>
 <!DOCTYPE html>
 <html>
 <head>

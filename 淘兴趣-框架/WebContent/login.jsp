@@ -32,9 +32,8 @@
 				<input type="submit" name="" value="登录"
 					class="btn btn-primary btn-block" />
 			</div>
-			<div class="form-group">
-					<input type="button" name="" value="注册"
-					class="btn btn-link active btn-block" onclick="window.location.href='register.jsp'" />
+			<div class=" form-group text-center">
+				<a href="register.jsp">注册</a>
 			</div>
 		</form>
 	</div>
