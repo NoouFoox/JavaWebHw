@@ -14,7 +14,10 @@
 	ResultSet rs = null;
 	
 	Class.forName("com.mysql.cj.jdbc.Driver");
-	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/interestdb?useSSL=true&serverTimezone=GMT","root", "root");
+	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/interestdb?useSSL=true&serverTimezone=GMT&characterEncodding=UTF8"
+			,"root", "root");
+	String interestid =request.getParameter("interest_id");
+	int interest_id=(interestid==null)?(Integer.parseInt(interestid)):0;
 %>
 <!DOCTYPE html>
 <html>
@@ -62,9 +65,11 @@
 			<!-- 兴趣列表 -->
 			<div id="interest_list" class="col-md-2">
 				<div class="nav nav-pills flex-md-column flex-sm-row">
-					<a href="" class="nav-link active">推荐</a> <a href=""
-						class="nav-link">数据库兴趣</a> <a href="" class="nav-link">前端兴趣</a> <a
-						href="" class="nav-link">后端兴趣</a> <a href="" class="nav-link">运维兴趣</a>
+					 <a href="index.jsp?interest_id=0" class="nav-link active">推荐</a>
+					 <a href="index.jsp?interest_id=1" class="nav-link">数据库兴趣</a>
+					 <a href="index.jsp?interest_id=2" class="nav-link">前端兴趣</a>
+					 <a href="index.jsp?interest_id=3" class="nav-link">后端兴趣</a>
+					 <a href="index.jsp?interest_id=4" class="nav-link">运维兴趣</a>
 				</div>
 			</div>
 			<!-- 趣点列表 -->
