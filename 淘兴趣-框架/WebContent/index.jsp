@@ -18,6 +18,14 @@
 			,"root", "root");
 	String interestid =request.getParameter("interest_id");
 	int interest_id=(interestid==null)?(Integer.parseInt(interestid)):0;
+	if (interest_id==0){
+		String sql="select interest_id,name,subscribe_num,image from topic order by subscribe_num desc limit 6";
+		ps=conn.prepareStatement(sql);
+	}else{
+		String sql="select interest_id,name,subscribe_num,image from topic where interest_id=? order by subscribe_num desc limit 6";
+		ps.setInt(1, interest_id);
+	}
+	rs=ps.executeQuery();
 %>
 <!DOCTYPE html>
 <html>
