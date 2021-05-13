@@ -80,10 +80,6 @@
 						<a href="index.jsp?interest_id=2" class="nav-link">前端兴趣</a>
 						<a href="index.jsp?interest_id=3" class="nav-link">后端兴趣</a>
 						<a href="index.jsp?interest_id=4" class="nav-link">运维兴趣</a>
-						<script type="text/javascript">
-							let activel=document.querySelectorAll(".nav-link");
-							console.log(activel);
-						</script>
 					</div>
 				</div>
 				<!-- 趣点列表 -->
@@ -101,8 +97,7 @@
 							<a href="" class="text-dark text-decoration-none"> <img alt="" src="<%=rs.getString("image") %>" class="card-img-bottom">
 							</a>
 						</div>
-						<%
-							
+						<%	
 							}
 						%>
 					</div>
