@@ -5,6 +5,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+
 <%
 	Connection conn = null;
 	//简单 
@@ -26,7 +27,17 @@
 		ps.setInt(1, interest_id);
 	}
 	rs=ps.executeQuery();
+	
 %>
+<%!	
+	String Tactive(int n,int m){
+		if(n==m){
+			return "active";
+		}
+			return "";
+		}
+%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -74,12 +85,15 @@
 			<div class="row">
 				<!-- 兴趣列表 -->
 				<div id="interest_list" class="col-md-2">
+				<%
+					
+				%>
 					<div class="nav nav-pills flex-md-column flex-sm-row">
-						<a href="index.jsp?interest_id=0" class="nav-link active">推荐</a>
-						<a href="index.jsp?interest_id=1" class="nav-link">数据库兴趣</a>
-						<a href="index.jsp?interest_id=2" class="nav-link">前端兴趣</a>
-						<a href="index.jsp?interest_id=3" class="nav-link">后端兴趣</a>
-						<a href="index.jsp?interest_id=4" class="nav-link">运维兴趣</a>
+						<a href="index.jsp?interest_id=0" class="nav-link <%=Tactive(interest_id,0) %>">推荐</a>
+						<a href="index.jsp?interest_id=1" class="nav-link <%=Tactive(interest_id,1) %>">数据库兴趣</a>
+						<a href="index.jsp?interest_id=2" class="nav-link <%=Tactive(interest_id,2) %>">前端兴趣</a>
+						<a href="index.jsp?interest_id=3" class="nav-link <%=Tactive(interest_id,3) %>">后端兴趣</a>
+						<a href="index.jsp?interest_id=4" class="nav-link <%=Tactive(interest_id,4) %>">运维兴趣</a>
 					</div>
 				</div>
 				<!-- 趣点列表 -->
