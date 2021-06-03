@@ -5,19 +5,18 @@
 <head>
 	<meta charset="utf-8"> 
 	<title>学生信息管理系统</title>
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">   
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<style>
-    .fakeimg {
-        height: 200px;
-         background: #aaa;
-    }
-  </style>
+	<style type="text/css">
+	.topbg{
+			background-image: url('./img/dg.jpg')
+	}</style>
 </head>
 <body>
 
-<div class="jumbotron text-center container" style="margin-bottom:0">
+<div class="jumbotron text-center container topbg" style="margin-bottom:0">
   <h1>学生信息管理系统</h1>
   <p><kbd>19307103贺俊浩</kbd></p> 
 </div>
@@ -34,10 +33,10 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class=""><a href="search.jsp?id=&name=&math=$english=&physics=">查询</a></li>
-        <li><a href="search.jsp?id=&name=&math=$english=&physics=">插入</a></li>
-        <li><a href="#" class="search.jsp?id=&name=&math=$english=&physics=">修改</a></li>
-        <li><a href="#" class="search.jsp?id=&name=&math=$english=&physics=">删除</a></li>
+        <li class=""><a href="search.jsp?id=&name=&math=&english=&physics=">查询</a></li>
+        <li><a href="search.jsp?id=&name=&math=&english=&physics=">插入</a></li>
+        <li><a href="#" class="search.jsp?id=&name=&math=&english=&physics=">修改</a></li>
+        <li><a href="#" class="search.jsp?id=&name=&math=&english=&physics=">删除</a></li>
       </ul>
     </div>
   </div>
@@ -48,7 +47,9 @@
     <div class="col-sm-4">
       <h2>关于我</h2>
       <h5>我的照片:</h5>
-      <div class="fakeimg">这边插入图像</div>
+      <div class="fakeimgylp">
+      <img alt="袁隆平院士" src="./img/ylp.jpg" class="fakeimgylp img-responsive">
+      </div>
       <p>关于我的介绍..</p>
       <h3>链接</h3>
       <p>描述文本。</p>
@@ -62,15 +63,17 @@
     <div class="col-sm-8">
       <h2>标题</h2>
       <h5>副标题</h5>
-      <div class="fakeimg">
-      图片	
+      <div class="fakeimgfa">
+			<img class="fakeimg img-responsive" alt="" src="./img/img02.jpg">
       </div>
       <p>一些文本..</p>
       <p>菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！</p>
       <br>
       <h2>标题</h2>
       <h5>副标题</h5>
-      <div class="fakeimg">图像</div>
+      <div class="fakeimgfa">
+      		<img class="fakeimg img-responsive" alt="" src="./img/img01.jpg">
+      </div>
       <p>一些文本..</p>
       <p>菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！</p>
     </div>

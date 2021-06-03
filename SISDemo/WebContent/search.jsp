@@ -19,11 +19,49 @@
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student?useSSL=true&serverTimezone=GMT&characterEncodding=UTF8","root", "root");
 	String sql="select * from score";
-	
+	int flag = 0;
 	if(!(id.trim().isEmpty())){
 		sql = sql + " where id='" + id + "'";
-	}else if(!(name.trim().isEmpty())){
-		sql = sql + " where name='" + name + "'";
+		flag=1;
+	}
+	
+	if(!(name.trim().isEmpty())){
+		if(flag==1){
+			sql = sql + " and name='" + name + "'";
+		}else{
+			sql = sql + " where name='" + name + "'";
+			flag=1;
+		}
+	}
+	
+	if(!(math.trim().isEmpty())){
+		int m= Integer.parseInt(math);
+		if(flag==1){
+			sql = sql + " and math=" + m;
+		}else{
+			sql = sql + " where math=" + m;
+			flag=1;
+		}
+	}
+	
+	if(!(english.trim().isEmpty())){
+		int e= Integer.parseInt(english);
+		if(flag==1){
+			sql = sql + " and english=" + e;
+		}else{
+			sql = sql + " where english=" + e;
+			flag=1;
+		}
+	}
+	
+	if(!(physics.trim().isEmpty())){
+		int p= Integer.parseInt(physics);
+		if(flag==1){
+			sql = sql + " and physics=" + p;
+		}else{
+			sql = sql + " where physics=" + p;
+			flag=1;
+		}
 	}
 	st=conn.createStatement();
 	rs=st.executeQuery(sql);
@@ -37,15 +75,14 @@
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
-    .fakeimg {
-        height: 200px;
-         background: #aaa;
-    }
+	.topbg{
+			background-image: url('./img/dg.jpg')
+	}
   </style>
 </head>
 <body>
 
-<div class="jumbotron text-center container" style="margin-bottom:0">
+<div class="jumbotron text-center container topbg" style="margin-bottom:0">
   <h1>学生信息管理系统</h1>
   <p><kbd>19307103贺俊浩</kbd></p> 
 </div>
