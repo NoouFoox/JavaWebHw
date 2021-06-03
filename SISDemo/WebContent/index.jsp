@@ -12,7 +12,8 @@
 	<style type="text/css">
 	.topbg{
 			background-image: url('./img/dg.jpg')
-	}</style>
+	}
+	</style>
 </head>
 <body>
 
