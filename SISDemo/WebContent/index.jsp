@@ -30,14 +30,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.jsp">管理系统</a>
+      <a class="navbar-brand acitve" href="index.jsp" style="color: white;">管理系统</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class=""><a href="search.jsp?id=&name=&math=&english=&physics=">查询</a></li>
-        <li><a href="search.jsp?id=&name=&math=&english=&physics=">插入</a></li>
-        <li><a href="#" class="search.jsp?id=&name=&math=&english=&physics=">修改</a></li>
-        <li><a href="#" class="search.jsp?id=&name=&math=&english=&physics=">删除</a></li>
+        <li><a href="insert.jsp?id=&name=&math=&english=&physics=">插入</a></li>
+        <li><a href="#" class="">修改</a></li>
+        <li><a href="remove.jsp?id=&name=&math=&english=&physics=" class="">删除</a></li>
       </ul>
     </div>
   </div>
@@ -81,8 +81,11 @@
   </div>
 </div>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <p>底部内容</p>
-</div>
+		<footer class="container bg-light text-center">
+			<p>
+				<a>售后服务｜</a> <a>隐私策略｜</a> <a>广告服务｜</a> <a>客服中心</a>
+			</p>
+			<p>淘兴趣@关注你感兴趣的人和事</p>
+		</footer>
 </body>
 </html>

@@ -18,51 +18,15 @@
 	ResultSet rs = null;
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student?useSSL=true&serverTimezone=GMT&characterEncodding=UTF8","root", "root");
+	
+	if(id.trim().isEmpty()){
+		
+	}else{
+		String sql="delete from score where id="+id+"";
+		ps=conn.prepareStatement(sql);
+		ps.executeUpdate();
+	}
 	String sql="select * from score";
-	int flag = 0;
-	if(!(id.trim().isEmpty())){
-		sql = sql + " where id='" + id + "'";
-		flag=1;
-	}
-	
-	if(!(name.trim().isEmpty())){
-		if(flag==1){
-			sql = sql + " and name='" + name + "'";
-		}else{
-			sql = sql + " where name='" + name + "'";
-			flag=1;
-		}
-	}
-	
-	if(!(math.trim().isEmpty())){
-		int m= Integer.parseInt(math);
-		if(flag==1){
-			sql = sql + " and math=" + m;
-		}else{
-			sql = sql + " where math=" + m;
-			flag=1;
-		}
-	}
-	
-	if(!(english.trim().isEmpty())){
-		int e= Integer.parseInt(english);
-		if(flag==1){
-			sql = sql + " and english=" + e;
-		}else{
-			sql = sql + " where english=" + e;
-			flag=1;
-		}
-	}
-	
-	if(!(physics.trim().isEmpty())){
-		int p= Integer.parseInt(physics);
-		if(flag==1){
-			sql = sql + " and physics=" + p;
-		}else{
-			sql = sql + " where physics=" + p;
-			flag=1;
-		}
-	}
 	st=conn.createStatement();
 	rs=st.executeQuery(sql);
  %>
@@ -99,10 +63,10 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">查询</a></li>
+		<li class=""><a href="search.jsp?id=&name=&math=&english=&physics=">查询</a></li>
          <li><a href="insert.jsp?id=&name=&math=&english=&physics=">插入</a></li>
         <li><a href="#" class="">修改</a></li>
-        <li><a href="remove.jsp?id=&name=&math=&english=&physics=" class="">删除</a></li>
+        <li class="active"><a href="#" class="">删除</a></li>
       </ul>
     </div>
   </div>
@@ -112,28 +76,29 @@
   <div class="row">
     <div class="col-sm-3">
     	<form action="">
+    	<h2 class="text-center">通过学号删除</h2>
     		<div class="form-group">
     			学号:<input type="text" name="id" class="form-control">
     		</div>
+<!--     		<div class="form-group"> -->
+<!--     			姓名:<input type="text" name="name" class="form-control"> -->
+<!--     		</div> -->
+<!--     		<div class="form-group"> -->
+<!--     			数学:<input type="text" name="math" class="form-control"> -->
+<!--     		</div>    -->
+<!--     		<div class="form-group"> -->
+<!--     			英语:<input type="text" name="english" class="form-control"> -->
+<!--     		</div> 		 -->
+<!--     		<div class="form-group"> -->
+<!--     			物理:<input type="text" name="physics" class="form-control"> -->
+<!--     		</div> -->
     		<div class="form-group">
-    			姓名:<input type="text" name="name" class="form-control">
-    		</div>
-    		<div class="form-group">
-    			数学:<input type="text" name="math" class="form-control">
-    		</div>   
-    		<div class="form-group">
-    			英语:<input type="text" name="english" class="form-control">
-    		</div> 		
-    		<div class="form-group">
-    			物理:<input type="text" name="physics" class="form-control">
-    		</div>
-    		<div class="form-group">
-    			<input type="submit" value="查询"  class="btn btn-primary">
+    			<input type="submit" value="删除"  class="btn btn-primary">
     		</div>
     	</form>
     </div>
     <div class="col-sm-9">
-      <h2>信息查询</h2>
+      <h2>信息删除</h2>
       <h5>详细信息</h5>
       <%
       out.print("<table class='table table-striped table-bordered'>");
